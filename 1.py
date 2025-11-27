@@ -177,7 +177,7 @@
 #         break
 
 #Longest Subarray with Sum K
-arr=[1,2,1,1,1,1,4,2,3]
+arr=[2,0,0,3]
 k=3
 longest_subarray=[]
 for i in range(0,len(arr)):
@@ -192,6 +192,6 @@ for i in range(0,len(arr)):
                 sum+=arr[j]
             else:
                 break
-        if(len(longest_subarray)<len(subarray)):
+        if(len(longest_subarray)<len(subarray) and sum==k):
             longest_subarray=subarray
 print(longest_subarray)
