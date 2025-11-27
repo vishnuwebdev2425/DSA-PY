@@ -177,21 +177,43 @@
 #         break
 
 #Longest Subarray with Sum K
-arr=[2,0,0,3]
-k=3
-longest_subarray=[]
-for i in range(0,len(arr)):
-    sum=0
-    subarray=[]
-    if(arr[i]<k):
-        sum=arr[i]
-        subarray.append(arr[i])
-        for j in range(i+1,len(arr)):
-            if(sum+arr[j]<=k ):
-                subarray.append(arr[j])
-                sum+=arr[j]
-            else:
-                break
-        if(len(longest_subarray)<len(subarray) and sum==k):
-            longest_subarray=subarray
-print(longest_subarray)
+# arr=[2,0,0,3]
+# k=3
+# longest_subarray=[]
+# for i in range(0,len(arr)):
+#     sum=0
+#     subarray=[]
+#     if(arr[i]<k):
+#         sum=arr[i]
+#         subarray.append(arr[i])
+#         for j in range(i+1,len(arr)):
+#             if(sum+arr[j]<=k ):
+#                 subarray.append(arr[j])
+#                 sum+=arr[j]
+#             else:
+#                 break
+#         if(len(longest_subarray)<len(subarray) and sum==k):
+#             longest_subarray=subarray
+# print(longest_subarray)
+#Optimal
+
+
+nums = [10, 5, 2, 7, 1, 9]
+k = 15
+n = len(nums)
+maxLen = 0
+left = 0
+right = 0
+sum = nums[0]
+while right < n:
+    while left <= right and sum > k:
+        sum -= nums[left]
+        left += 1
+    if sum == k:
+        maxLen = max(maxLen, right - left + 1)
+
+    right += 1
+    if right < n:
+        sum += nums[right]
+
+print(maxLen)
