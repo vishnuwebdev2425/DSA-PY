@@ -198,22 +198,53 @@
 #Optimal
 
 
-nums = [10, 5, 2, 7, 1, 9]
-k = 15
-n = len(nums)
-maxLen = 0
-left = 0
-right = 0
-sum = nums[0]
-while right < n:
-    while left <= right and sum > k:
-        sum -= nums[left]
-        left += 1
-    if sum == k:
-        maxLen = max(maxLen, right - left + 1)
+# nums = [10, 5, 2, 7, 1, 9]
+# k = 15
+# n = len(nums)
+# maxLen = 0
+# left = 0
+# right = 0
+# sum = nums[0]
+# while right < n:
+#     while left <= right and sum > k:
+#         sum -= nums[left]
+#         left += 1
+#     if sum == k:
+#         maxLen = max(maxLen, right - left + 1)
 
-    right += 1
-    if right < n:
-        sum += nums[right]
+#     right += 1
+#     if right < n:
+#         sum += nums[right]
 
-print(maxLen)
+# print(maxLen)  //Check Again And Again
+
+#Two Sum
+# arr=[2,6,5,8,11]
+# target=10
+# count=0
+# for i in range(0,len(arr)):
+#     for j in range(i,len(arr)):
+#         if(arr[i]+arr[j]==target):
+#             print(arr[i],arr[j])
+#             count+=1
+#             break
+#     if(count>0):
+#         break
+
+#Two Pointer
+arr=[2,6,5,8,11]
+right=0
+left=len(arr)-1
+count=0
+target=50
+while(right<=left):
+    if(arr[right]+arr[left]==target):
+        print(arr[right],arr[left])
+        count+=1
+        break
+    elif(arr[right]+arr[left]>target):
+        left-=1
+    elif(arr[right]+arr[left]<target):
+        right+=1
+if(count==0):
+    print("The Numbers Are Not Found")
