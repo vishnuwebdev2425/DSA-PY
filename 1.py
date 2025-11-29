@@ -232,19 +232,39 @@
 #         break
 
 #Two Pointer
-arr=[2,6,5,8,11]
-right=0
-left=len(arr)-1
-count=0
-target=50
-while(right<=left):
-    if(arr[right]+arr[left]==target):
-        print(arr[right],arr[left])
-        count+=1
-        break
-    elif(arr[right]+arr[left]>target):
-        left-=1
-    elif(arr[right]+arr[left]<target):
-        right+=1
-if(count==0):
-    print("The Numbers Are Not Found")
+# arr=[2,6,5,8,11]
+# right=0
+# left=len(arr)-1
+# count=0
+# target=50
+# while(right<=left):
+#     if(arr[right]+arr[left]==target):
+#         print(arr[right],arr[left])
+#         count+=1
+#         break
+#     elif(arr[right]+arr[left]>target):
+#         left-=1
+#     elif(arr[right]+arr[left]<target):
+#         right+=1
+# if(count==0):
+#     print("The Numbers Are Not Found")
+
+#Sort an array of 0's and 1's and 2's
+arr=[0,1,2,0,1,2,1,0,0,0,1]
+count_0=0
+count_1=0
+count_2=0
+for i in range(0,len(arr)):
+    if(arr[i]==0):
+        count_0+=1
+    elif(arr[i]==1):
+        count_1+=1
+    else:
+        count_2+=1
+for i in range(0,count_0):
+    arr[i]=0
+for j in range(count_0,len(arr)):
+    arr[j]=1
+for z in range(count_0+count_1,len(arr)):
+    arr[z]=2
+print(arr)
